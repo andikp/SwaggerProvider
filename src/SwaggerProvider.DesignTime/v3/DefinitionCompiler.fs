@@ -315,7 +315,7 @@ type DefinitionCompiler (schema:OpenApiDocument, provideNullable) as this =
                    -> typeof<byte>.MakeArrayType(1)
                 | "string", "binary"
                 | "file", _  // for `multipart/form-data` : https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#considerations-for-file-uploads
-                   -> typeof<IO.Stream>
+                   -> if tyName.Contains("Response") then typeof<IO.Stream> else typeof<IO.FileInfo>
                 | "string", "date"
                 | "string", "date-time"
                    -> typeof<DateTimeOffset>

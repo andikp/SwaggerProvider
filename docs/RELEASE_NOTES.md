@@ -1,3 +1,6 @@
+#### 0.12.1 - Sep 18, 2021
+- OpenApiProvider: FileInfo instead IO:Stream
+
 #### 0.12.0 - Dec 22, 2020
 - OpenApiProvider: Dictionary support [#174](https://github.com/fsprojects/SwaggerProvider/pull/174)
 

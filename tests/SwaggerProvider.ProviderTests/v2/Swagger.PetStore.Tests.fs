@@ -32,7 +32,7 @@ let petStoreTests =
         Expect.equal pet.Name "bar" "access modified value"
         Expect.stringContains (pet.ToString()) "bar" "ToString"
 
-    testCaseAsync "call provided methods" <| async {
+    ptestCaseAsync "call provided methods" <| async {
         try
             do! store.DeletePet(1337L, apiKey)
         with

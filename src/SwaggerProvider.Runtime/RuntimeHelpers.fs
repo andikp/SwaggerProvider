@@ -130,13 +130,18 @@ module RuntimeHelpers =
 
     let toMultipartFormDataContent (keyValues:seq<string*obj>) =
         let cnt = new MultipartFormDataContent()
+        let addFileInfoStream name (stream:IO.FileInfo) =
+            let filename = stream.Name // asp.net core cannot deserialize IFormFile otherwise
+            cnt.Add(new StreamContent(stream.OpenRead()), name, filename)
         let addFileStream name (stream:IO.Stream) =
             let filename = Guid.NewGuid().ToString() // asp.net core cannot deserialize IFormFile otherwise
             cnt.Add(new StreamContent(stream), name, filename)
         for (name,value) in keyValues do
             match value with
             | null -> ()
+            | :? IO.FileInfo as stream -> addFileInfoStream name stream
             | :? IO.Stream as stream -> addFileStream name stream
+            | :? (IO.FileInfo[]) as streams -> streams |> Seq.iter (addFileInfoStream name)
             | :? (IO.Stream[]) as streams -> streams |> Seq.iter (addFileStream name)
             | x ->
                 let strValue = x.ToString() // TODO: serialize? does not work with arrays probably
