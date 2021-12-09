@@ -341,3 +341,4 @@ ASALocalRun/
 healthchecksdb
 
 temp*.txt
+deploy.cmd

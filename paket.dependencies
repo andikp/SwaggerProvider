@@ -1,10 +1,10 @@
 version 5.198.0
 source https://api.nuget.org/v3/index.json
-frameworks: net46, netcoreapp3.1, netstandard2.0
+frameworks: net46, net6.0, netstandard2.0
 
-nuget FSharp.Core 4.3.4
+nuget FSharp.Core 4.7.2
 nuget System.Net.Http
-nuget Newtonsoft.Json
+nuget Newtonsoft.Json 13.0.1
 nuget Microsoft.OpenApi.Readers
 nuget NETStandard.Library.NETFramework
 
@@ -15,12 +15,12 @@ nuget YamlDotNet
 github fsprojects/FSharp.TypeProviders.SDK src/ProvidedTypes.fsi
 github fsprojects/FSharp.TypeProviders.SDK src/ProvidedTypes.fs
 
-github fsharp/FSharp.Data src/CommonRuntime/Pluralizer.fs
-github fsharp/FSharp.Data src/CommonRuntime/NameUtils.fs
+github fsprojects/FSharp.Data:main src/CommonRuntime/Pluralizer.fs
+github fsprojects/FSharp.Data:main src/CommonRuntime/NameUtils.fs
 
 group Server
     source https://api.nuget.org/v3/index.json
-    framework: netcoreapp3.1
+    framework: net6.0
 
     nuget Microsoft.AspNetCore
     nuget Microsoft.AspNetCore.Mvc
@@ -32,7 +32,7 @@ group Server
 
 group Test
     source https://api.nuget.org/v3/index.json
-    frameworks: netcoreapp3.1
+    frameworks: net6.0
 
     nuget FSharp.Compiler.Service redirects: force
     nuget FSharp.Core redirects: force

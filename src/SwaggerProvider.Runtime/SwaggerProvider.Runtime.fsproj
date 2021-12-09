@@ -30,11 +30,11 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Be explicit about the version of FSharp.Core since we mention it in the manual nuget package spec -->
-    <PackageReference Include="FSharp.Core" Version="4.3.4" />
+    <PackageReference Include="FSharp.Core" Version="4.7.2" />
   </ItemGroup>
   <Target Name="BeforeBuild">
     <MSBuild Projects="..\SwaggerProvider.DesignTime\SwaggerProvider.DesignTime.fsproj" Targets="Restore" />
-    <MSBuild Projects="..\SwaggerProvider.DesignTime\SwaggerProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=netcoreapp3.1" />
+    <MSBuild Projects="..\SwaggerProvider.DesignTime\SwaggerProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=net6.0" />
     <MSBuild Projects="..\SwaggerProvider.DesignTime\SwaggerProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=netstandard2.0" />
     <MSBuild Projects="..\SwaggerProvider.DesignTime\SwaggerProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=net46" />
   </Target>

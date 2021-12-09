@@ -1,3 +1,6 @@
+#### 0.12.2 - Dec 09, 2021
+- Netonsoft.Json & net6.0
+
 #### 0.12.1 - Sep 18, 2021
 - OpenApiProvider: FileInfo instead IO:Stream
 
